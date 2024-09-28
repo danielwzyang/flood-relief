@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
-import { Lexend } from "next/font/google"
+import { Lora } from "next/font/google"
 import "./globals.css"
 
-const lexend = Lexend({ subsets: ["latin"] })
+const lora = Lora({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
     title: "Flood Relief Network",
@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${lexend.className} antialiased`}>
+            <body className={`${lora.className} antialiased`}>
                 {children}
             </body>
         </html>
