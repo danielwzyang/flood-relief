@@ -5,7 +5,7 @@ import menu from "../assets/menu.svg"
 export default function Navbar() {
     return (
         <Sheet>
-            <SheetTrigger className="fixed z-10 bg-white h-10 w-10 flex justify-center rounded m-[10px] border">
+            <SheetTrigger className="fixed z-10 bg-white h-10 w-10 flex justify-center rounded m-[10px] border items-center">
                 <Image src={menu} alt="menu"/>
             </SheetTrigger>
             <SheetContent side="left" className="w-[200px]">
