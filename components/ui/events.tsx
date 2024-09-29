@@ -25,8 +25,6 @@ export default function Events() {
                 }
             })
 
-            console.log(response.data.items)
-
             const newEvents: { [day: string]: { name: string, desc: string } } = {}
             response.data.items.forEach((e: { start: { date: string }, summary: string, description?: string }) => { newEvents[e.start.date] = { name: e.summary, desc: e.description ? e.description : "" } })
             setEventList(newEvents)
@@ -34,7 +32,6 @@ export default function Events() {
             const events = response.data.items.map((e: { start: { date: string }, summary: string, description?: string }) => {
                 return e.start && e.start.date ? dayjs(e.start.date).tz("America/New_York").toDate() : null
             }).filter((e: Date | null) => e != null)
-
             setModifiers({ events })
         } catch (error) {
             console.error("error fetching events", error)
@@ -57,11 +54,11 @@ export default function Events() {
     return (
         <>
             <h1 className="text-center mt-5 text-2xl ">Schedule</h1>
-            <div className="flex flex-wrap items-center justify-center gap-x-10 my-5">
-                <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border border-[#b6b6b6] rounded-2xl" />
-                <Card className="w-[200px] border border-[#b6b6b6] mt-5">
+            <div className="flex flex-col items-center justify-center gap-x-10 my-5">
+                <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="w-[300px] flex justify-center border border-[#b6b6b6] rounded-2xl" />
+                <Card className="w-[300px] px-4 border border-[#b6b6b6] mt-5">
                     <CardHeader>
-                        <h1 className="text-center">{currentEvent.name}</h1>
+                        <h1 className="text-center text-balance">{currentEvent.name}</h1>
                         {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
                     </CardHeader>
                 </Card>

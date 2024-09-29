@@ -18,7 +18,7 @@ export default function Home() {
             
             <Events></Events>
 
-            <h1 className="text-center mt-5 text-2xl ">Our Team</h1>
+            <h1 className="text-center mt-10 text-2xl ">Our Team</h1>
             <div className="my-5 flex flex-wrap w-fit justify-center mx-auto gap-5">
                 <TeamCard
                     name="Junghoon Yu"
