@@ -3,7 +3,7 @@ import Navbar from "@/components/ui/navbar"
 export default function Home() {
     return (
         <div>
-            <Navbar />
+            <Navbar name="Gallery" />
         </div>
     )
 }
