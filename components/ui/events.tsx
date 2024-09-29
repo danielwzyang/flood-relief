@@ -12,10 +12,10 @@ dayjs.extend(timezone)
 export default function Events() {
     const [date, setDate] = useState<Date | undefined>(new Date())
     const [modifiers, setModifiers] = useState({ events: [] })
-    const [eventList, setEventList] = useState<{ [day: string]: any }>({})
+    const [eventList, setEventList] = useState<{ [day: string]: { name: string, desc: string } }>({})
     const [currentEvent, setEvent] = useState({ name: `No events for ${dayjs(date).format("MMMM D, YYYY")}`, desc: "" })
 
-    var CALENDAR_ID = "c_348f6d7cb86ecdc10e0777411bf1b8b2aa1c334d76664140341af5b27ff723c5@group.calendar.google.com"
+    const CALENDAR_ID = "c_348f6d7cb86ecdc10e0777411bf1b8b2aa1c334d76664140341af5b27ff723c5@group.calendar.google.com"
 
     async function fetchEvents() {
         try {
@@ -27,11 +27,11 @@ export default function Events() {
 
             console.log(response.data.items)
 
-            var newEvents: { [day: string]: any } = {}
-            response.data.items.forEach((e: any) => { newEvents[e.start.date] = { name: e.summary, desc: e.description ? e.description : "" } })
+            let newEvents: { [day: string]: { name: string, desc: string } } = {}
+            response.data.items.forEach((e: { start: { date: string }, summary: string, description?: string }) => { newEvents[e.start.date] = { name: e.summary, desc: e.description ? e.description : "" } })
             setEventList(newEvents)
 
-            const events = response.data.items.map((e: any) => {
+            const events = response.data.items.map((e: { start: { date: string }, summary: string, description?: string }) => {
                 return e.start && e.start.date ? dayjs(e.start.date).tz("America/New_York").toDate() : null
             }).filter((e: Date | null) => e != null)
 
@@ -46,7 +46,7 @@ export default function Events() {
     }, [])
 
     useEffect(() => {
-        var formatted = dayjs(date).format("YYYY-MM-DD")
+        const formatted = dayjs(date).format("YYYY-MM-DD")
         if (formatted in eventList) {
             setEvent(eventList[formatted])
         } else {
@@ -56,7 +56,7 @@ export default function Events() {
 
     return (
         <div className="flex flex-wrap items-center justify-center gap-x-10 my-5">
-            <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border rounded-2xl"/>
+            <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border rounded-2xl" />
             <Card className="w-[200px]">
                 <CardHeader>
                     <h1 className="text-center">{currentEvent.name}</h1>

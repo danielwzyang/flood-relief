@@ -10,7 +10,6 @@ import { buttonVariants } from "@/components/ui/button"
 export type CalendarProps = React.ComponentProps<typeof DayPicker>
 
 
-
 const modifiersStyles = {
     events: {
         textDecoration: "underline",
