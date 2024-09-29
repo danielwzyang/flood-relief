@@ -58,8 +58,8 @@ export default function Events() {
         <>
             <h1 className="text-center mt-5 text-2xl ">Schedule</h1>
             <div className="flex flex-wrap items-center justify-center gap-x-10 my-5">
-                <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border-2 rounded-2xl" />
-                <Card className="w-[200px] border-2 mt-5">
+                <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border border-[#b6b6b6] rounded-2xl" />
+                <Card className="w-[200px] border border-[#b6b6b6] mt-5">
                     <CardHeader>
                         <h1 className="text-center">{currentEvent.name}</h1>
                         {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
