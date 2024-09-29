@@ -13,9 +13,7 @@ export default function Home() {
             <div className="h-[60px] w-full flex items-center justify-center ">
                 <h1 className="text-xl sm:text-2xl">Flood Relief Network</h1>
             </div>
-            <div className="w-full h-screen max-h-[750px]">
-                <Image src={background} alt="background" loading={"lazy"} className="w-full h-full object-cover object-center" />
-            </div>
+            <Image src={background} alt="background" loading={"lazy"} className="w-full max-h-[750px] object-cover object-center" />
 
             <h1 className="text-center mt-5 text-2xl ">Our Team</h1>
             <div className="my-5 flex flex-wrap w-fit justify-center mx-auto gap-5">
