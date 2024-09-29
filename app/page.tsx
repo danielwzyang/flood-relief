@@ -1,3 +1,5 @@
+"use client"
+
 import Navbar from "@/components/ui/navbar"
 import "./globals.css"
 import background from "../assets/bg.jpg"
@@ -5,15 +7,16 @@ import Image from "next/image"
 import TeamCard from "@/components/ui/teamcard"
 import placeholder from "../assets/profile.png"
 import daniel from "../assets/daniel.png"
+import Events from "@/components/ui/events"
 
 export default function Home() {
+
     return (
         <div>
-            <Navbar />
-            <div className="h-[60px] w-full flex items-center justify-center ">
-                <h1 className="text-xl sm:text-2xl">Flood Relief Network</h1>
-            </div>
+            <Navbar name="Flood Relief Network"/>
             <Image src={background} alt="background" loading={"lazy"} className="w-full max-h-[750px] object-cover object-center" />
+            
+            <Events></Events>
 
             <h1 className="text-center mt-5 text-2xl ">Our Team</h1>
             <div className="my-5 flex flex-wrap w-fit justify-center mx-auto gap-5">
@@ -54,6 +57,8 @@ export default function Home() {
                     image={daniel}
                 />
             </div>
+
+
         </div>
     )
 }
