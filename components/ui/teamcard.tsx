@@ -13,14 +13,15 @@ import facebook from "../../assets/facebook.svg"
 import instagram from "../../assets/instagram.svg"
 import mail from "../../assets/mail.svg"
 import { Separator } from "./separator"
+import { Popover, PopoverTrigger, PopoverContent } from "./popover"
 
 export interface cardProps {
-    name: String,
-    position: String,
-    bio: String,
-    facebook: String,
-    instagram: String,
-    email: String
+    name: string,
+    position: string,
+    bio: string,
+    facebook: string,
+    instagram: string,
+    mail: string
 }
 
 export default function TeamCard(props: cardProps) {
@@ -34,11 +35,20 @@ export default function TeamCard(props: cardProps) {
             <CardContent className="mt-6 text-balance">{props.bio}</CardContent>
             <CardFooter>
                 <div className="flex h-5 items-center space-x-3 ml-auto mr-2">
-                    <a href={props.facebook}><Image src={facebook} alt="facebook" /></a>
+                    <Popover>
+                        <PopoverTrigger><Image src={facebook} alt="facebook" /></PopoverTrigger>
+                        <PopoverContent className="w-fit py-2 rounded-xl text-sm">{props.facebook}</PopoverContent>
+                    </Popover>
                     <Separator orientation="vertical" className="bg-[#b6b6b6]" />
-                    <a href={props.instagram}><Image src={instagram} alt="instagram" /></a>
+                    <Popover>
+                        <PopoverTrigger><Image src={instagram} alt="instagram" /></PopoverTrigger>
+                        <PopoverContent className="w-fit py-2 rounded-xl text-sm">{props.instagram}</PopoverContent>
+                    </Popover>
                     <Separator orientation="vertical" className="bg-[#b6b6b6]" />
-                    <a href={props.email}><Image src={mail} alt="mail" /></a>
+                    <Popover>
+                        <PopoverTrigger><Image src={mail} alt="mail" /></PopoverTrigger>
+                        <PopoverContent className="w-fit py-2 rounded-xl text-sm">{props.mail}</PopoverContent>
+                    </Popover>
                 </div>
             </CardFooter>
         </Card >
