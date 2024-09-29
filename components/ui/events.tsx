@@ -27,7 +27,7 @@ export default function Events() {
 
             console.log(response.data.items)
 
-            let newEvents: { [day: string]: { name: string, desc: string } } = {}
+            const newEvents: { [day: string]: { name: string, desc: string } } = {}
             response.data.items.forEach((e: { start: { date: string }, summary: string, description?: string }) => { newEvents[e.start.date] = { name: e.summary, desc: e.description ? e.description : "" } })
             setEventList(newEvents)
 

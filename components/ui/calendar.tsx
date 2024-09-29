@@ -22,6 +22,7 @@ function Calendar({
     classNames,
     showOutsideDays = true,
     modifiers,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ...props
 }: CalendarProps) {
     return (
