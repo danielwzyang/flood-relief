@@ -55,14 +55,17 @@ export default function Events() {
     }, [date])
 
     return (
-        <div className="flex flex-wrap items-center justify-center gap-x-10 my-5">
-            <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border rounded-2xl" />
-            <Card className="w-[200px]">
-                <CardHeader>
-                    <h1 className="text-center">{currentEvent.name}</h1>
-                    {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
-                </CardHeader>
-            </Card>
-        </div>
+        <>
+            <h1 className="text-center mt-5 text-2xl ">Schedule</h1>
+            <div className="flex flex-wrap items-center justify-center gap-x-10 my-5">
+                <Calendar mode="single" selected={date} onSelect={setDate} modifiers={modifiers} className="border-2 rounded-2xl" />
+                <Card className="w-[200px] border-2 mt-5">
+                    <CardHeader>
+                        <h1 className="text-center">{currentEvent.name}</h1>
+                        {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
+                    </CardHeader>
+                </Card>
+            </div>
+        </>
     )
 }
