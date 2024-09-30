@@ -14,7 +14,7 @@ export default function Home() {
     return (
         <div>
             <Navbar name="Flood Relief Network"/>
-            <Image src={background} alt="background" loading={"lazy"} className="w-full max-h-[750px] object-cover object-center" />
+            <Image src={background} alt="background" loading={"lazy"} className="w-full max-h-[80vh] object-cover object-center" />
             
             <Events></Events>
 
