@@ -40,16 +40,21 @@ export default function Events() {
 
     useEffect(() => {
         fetchEvents()
+        updateEvent()
     }, [])
 
     useEffect(() => {
+        updateEvent()
+    }, [date])
+
+    function updateEvent() {
         const formatted = dayjs(date).format("YYYY-MM-DD")
         if (formatted in eventList) {
             setEvent(eventList[formatted])
         } else {
             setEvent({ name: `No events for ${dayjs(date).format("MMMM D, YYYY")}`, desc: "" })
         }
-    }, [date])
+    }
 
     return (
         <>
