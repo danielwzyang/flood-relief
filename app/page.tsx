@@ -31,7 +31,7 @@ export default function Home() {
                 />
                 <TeamCard
                     name="Seoyeon Yu"
-                    position="president"
+                    position="internals director"
                     bio="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste corrupti fugit sit dolores aperiam doloribus explicabo laborum cupiditate sequi perspiciatis?"
                     facebook="Seoyeon Yu"
                     instagram="shkoyeon"
@@ -40,10 +40,19 @@ export default function Home() {
                 />
                 <TeamCard
                     name="Thomas Choi"
-                    position="president"
+                    position="outreach director"
                     bio="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste corrupti fugit sit dolores aperiam doloribus explicabo laborum cupiditate sequi perspiciatis?"
                     facebook=":("
                     instagram="thomas._.cho1"
+                    mail=":("
+                    image={placeholder}
+                />
+                <TeamCard
+                    name="Ethan Pak"
+                    position="financial director"
+                    bio="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste corrupti fugit sit dolores aperiam doloribus explicabo laborum cupiditate sequi perspiciatis?"
+                    facebook=":("
+                    instagram="eethanp_"
                     mail=":("
                     image={placeholder}
                 />
