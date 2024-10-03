@@ -26,8 +26,10 @@ export default function Events(props: props) {
 
     const [date, setDate] = useState<Date | undefined>()
     const [currentEvent, setEvent] = useState({ name: `No events for ${dayjs(date).format("MMMM D, YYYY")}`, desc: "" })
+    const [loaded, setLoaded] = useState(false)
 
     useEffect(() => {
+        setLoaded(true)
         setDate(new Date())
     }, [])
 
@@ -46,7 +48,8 @@ export default function Events(props: props) {
 
     return (
         <>
-            <h1 className="text-center mt-5 text-2xl ">Schedule</h1>
+            {loaded ? 
+            <><h1 className="text-center mt-5 text-2xl ">Schedule</h1>
             <div className="flex flex-col items-center justify-center gap-x-10 my-5">
                 <Calendar mode="single" selected={date} onSelect={setDate} modifiers={{ events: modifiers }} className="w-[300px] flex justify-center border border-[#b6b6b6] rounded-2xl" />
                 <Card className="w-[300px] px-4 border border-[#b6b6b6] mt-5">
@@ -55,7 +58,8 @@ export default function Events(props: props) {
                         {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
                     </CardHeader>
                 </Card>
-            </div>
+            </div></> : 
+            <></>}
         </>
     )
 }
