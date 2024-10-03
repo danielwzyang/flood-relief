@@ -26,7 +26,7 @@ export interface cardProps {
 
 export default function TeamCard(props: cardProps) {
     return (
-        <Card className="w-[300px] h-[350px] border-[#b6b6b6] relative">
+        <Card className="w-[300px] h-[350px] border-[#b6b6b6] relative rounded-2xl">
             <CardHeader className="relative">
                 <Image src={props.image} alt="picture" width={80} height={80} className="absolute right-5 top-5 rounded-xl" />
                 <CardTitle className="text-lg">{props.name}</CardTitle>
