@@ -24,11 +24,15 @@ export default function Events(props: props) {
         events[e.start.date] = { name: e.summary, desc: e.description ? e.description : "" }
     })
 
-    const [date, setDate] = useState<Date | undefined>(new Date())
+    const [date, setDate] = useState<Date | undefined>()
     const [currentEvent, setEvent] = useState({ name: `No events for ${dayjs(date).format("MMMM D, YYYY")}`, desc: "" })
 
     useEffect(() => {
-        updateEvent()
+        setDate(new Date())
+    }, [])
+
+    useEffect(() => {
+        if (date) updateEvent()
     }, [date])
 
     function updateEvent() {
