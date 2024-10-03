@@ -1,5 +1,3 @@
-"use client"
-
 import Navbar from "@/components/ui/navbar"
 import "./globals.css"
 import background from "../assets/bg.jpg"
@@ -8,15 +6,16 @@ import TeamCard from "@/components/ui/teamcard"
 import placeholder from "../assets/profile.png"
 import daniel from "../assets/daniel.png"
 import Events from "@/components/ui/events"
+import { getEvents } from "../components/api"
 
-export default function Home() {
+export default async function Home() {
 
     return (
         <div>
             <Navbar name="Flood Relief Network"/>
             <Image src={background} alt="background" loading={"lazy"} className="w-full max-h-[80vh] object-cover object-center" />
             
-            <Events></Events>
+            <Events items={await getEvents()}/>
 
             <h1 className="text-center mt-10 text-2xl ">Our Team</h1>
             <div className="my-5 flex flex-wrap w-fit justify-center mx-auto gap-5">
