@@ -12,10 +12,10 @@ interface apiData {
 }
 
 export default async function Home() {
-    let response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${process.env.CALENDAR}/events?key=${process.env.API_KEY}`, {
+    const response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${process.env.CALENDAR}/events?key=${process.env.API_KEY}`, {
         next: { revalidate: 60 }
     })
-    let data: apiData = await response.json()
+    const data: apiData = await response.json()
 
     return (
         <div>
