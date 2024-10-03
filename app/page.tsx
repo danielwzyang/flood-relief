@@ -6,16 +6,23 @@ import TeamCard from "@/components/ui/teamcard"
 import placeholder from "../assets/profile.png"
 import daniel from "../assets/daniel.png"
 import Events from "@/components/ui/events"
-import { getEvents } from "../components/api"
+
+interface apiData {
+    items: { start: { date: string }, summary: string, description?: string }[]
+}
 
 export default async function Home() {
+    let response = await fetch(`https://www.googleapis.com/calendar/v3/calendars/${process.env.CALENDAR}/events?key=${process.env.API_KEY}`, {
+        next: { revalidate: 60 }
+    })
+    let data: apiData = await response.json()
 
     return (
         <div>
             <Navbar name="Flood Relief Network"/>
             <Image src={background} alt="background" loading={"lazy"} className="w-full max-h-[80vh] object-cover object-center" />
             
-            <Events items={await getEvents()}/>
+            <Events items={data.items}/>
 
             <h1 className="text-center mt-10 text-2xl ">Our Team</h1>
             <div className="my-5 flex flex-wrap w-fit justify-center mx-auto gap-5">
