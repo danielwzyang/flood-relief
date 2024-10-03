@@ -50,20 +50,13 @@ export default function Events(props: props) {
         <>
             <h1 className="text-center mt-5 text-2xl ">Schedule</h1>
             <div className="flex flex-col items-center justify-center gap-x-10 my-5">
-                {loaded ?
-                    <>
-                        <Calendar mode="single" selected={date} onSelect={setDate} modifiers={{ events: modifiers }} className="w-[300px] flex justify-center border border-[#b6b6b6] rounded-2xl" />
-                        <Card className="w-[300px] px-4 border border-[#b6b6b6] mt-5">
-                            <CardHeader>
-                                <h1 className="text-center text-balance">{currentEvent.name}</h1>
-                                {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
-                            </CardHeader>
-                        </Card>
-                    </> :
-                    <>
-                        <div className="w-[300px] h-[275px] rounded-2xl border border-[#b6b6b6]"></div>
-                        <div className="w-[300px] h-[100px] rounded-2xl border border-[#b6b6b6] mt-5"></div>
-                    </>}
+                <Calendar mode="single" selected={date} onSelect={setDate} modifiers={loaded ? { events: modifiers } : { events: [] }} className="w-[300px] flex justify-center border border-[#b6b6b6] rounded-2xl" />
+                <Card className="w-[300px] px-4 border border-[#b6b6b6] mt-5">
+                    <CardHeader>
+                        <h1 className="text-center text-balance">{currentEvent.name}</h1>
+                        {currentEvent.desc == "" ? <></> : <CardDescription className="text-center text-balance">{currentEvent.desc}</CardDescription>}
+                    </CardHeader>
+                </Card>
             </div>
         </>
     )
